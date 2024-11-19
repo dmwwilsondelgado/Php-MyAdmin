@@ -2,11 +2,11 @@
 
 require('conexion.php');
 
-echo "<pre>";
+echo '<br>';
 print_r($_REQUEST);
-echo "</pre>";
-
+echo '<br>';
 die();
+
 // variables para consultar
 $db = new Conexion(); // se instancia el objeto
 $conexion = $db->getConexion();//
@@ -32,5 +32,14 @@ $stm->bindParam(":id_ciudad",$id_ciudad);
 
 $usuario = $stm->execute();
 $id_usuario = $conexion->lastInsertId();
-var_dump($id_usuario);
-var_dump($id_genero);
+
+
+
+// var_dump($id_usuario);
+// var_dump($id_genero);
+
+foreach($lenguajes as $key => $value){
+    var_dump($key);
+    echo "<br>";
+    var_dump($value);
+}

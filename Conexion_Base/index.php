@@ -16,7 +16,6 @@ $banedera = $conexion->prepare($sql);
 $banedera->execute();
 $generos =$banedera->fetchALL();
 
-print_r($ciudades);
 ?>
 
 <!-- controlador.php -->

@@ -30,12 +30,15 @@ $ciudades =$banedera->fetchALL();
         foreach($generos as $key => $value){
         ?>    
             <div>
-              <label for="Genero<?=$value['id']?>">Ciudad</label>
+              <label for="Genero<?=$value['id']?>"><?=$value['nombre']?>
+              <input type="radio" name="id_genero" value="<?=$value['id']?>" id="genero_<?=$value['id']?>">
+              </label>
+            </div>
+        <?php
         }
-        
+        ?>
     </div>
+    <br>
+    <button>Guardar Datos</button>
 </form>
-
-
-
 

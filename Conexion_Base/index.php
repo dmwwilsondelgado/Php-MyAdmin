@@ -1,8 +1,10 @@
 <?php
 require('conexion.php');
 
+// variables para consultar
+
 $db = new Conexion(); // se instancia el objeto
-$conexion = $db->getConexion();
+$conexion = $db->getConexion();//
 
 $sql = "SELECT * FROM ciudades";
 $banedera = $conexion->prepare($sql);

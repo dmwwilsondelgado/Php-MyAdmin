@@ -17,7 +17,7 @@ $banedera->execute();
 $generos =$banedera->fetchALL();
 
 ?>
-
+<link rel="stylesheet" href="/Conexion_Base/Style/Style.css">
 <!-- controlador.php -->
 <form action="controlador.php" method="post">
     <fieldset>

@@ -2,11 +2,14 @@
 
 require('conexion.php');
 
-echo '<br>';
-print_r($_REQUEST);
-echo '<br>';
-die();
+// echo '<br>';
+// print_r($_REQUEST);
+// echo '<br>';
+// die();
 
+
+
+// Esto para revisar el aray de datos .
 // variables para consultar
 $db = new Conexion(); // se instancia el objeto
 $conexion = $db->getConexion();//
@@ -38,8 +41,8 @@ $id_usuario = $conexion->lastInsertId();
 // var_dump($id_usuario);
 // var_dump($id_genero);
 
-foreach($lenguajes as $key => $value){
-    var_dump($key);
-    echo "<br>";
-    var_dump($value);
-}
+// foreach($lenguajes as $key => $value){
+//     var_dump($key);
+//     echo "<br>";
+//     var_dump($value);
+// }

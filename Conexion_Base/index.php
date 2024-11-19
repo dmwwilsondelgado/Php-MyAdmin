@@ -1,6 +1,5 @@
 <?php
 require('conexion.php');
-
 // variables para consultar
 
 $db = new Conexion(); // se instancia el objeto
@@ -16,6 +15,8 @@ $sql = "SELECT * FROM generos";
 $banedera = $conexion->prepare($sql);
 $banedera->execute();
 $generos =$banedera->fetchALL();
+
+print_r($ciudades);
 ?>
 
 <!-- controlador.php -->
@@ -45,7 +46,7 @@ $generos =$banedera->fetchALL();
                 <?php
                 foreach ($ciudades as $key => $value) {
                 ?>
-                <option id="<?=$value['id_ciudad']?>">
+                <option id="<?=$value['id_ciudad']?>" value="<?=$value['id_ciudad']?>" name="id_ciudad">
                     <?= $value['nombre_ciudad'] ?>
                 </option>
                 <?php
@@ -59,28 +60,14 @@ $generos =$banedera->fetchALL();
              foreach ($generos as $key => $value){
             ?>
                 <div>
-                    <label for="genero<?=$value['id_genero']?>"><?= $value['genero'] ?>
-                        <input type="radio" name="id_genero" value="<?$value['id_genero']?>" id="genero<?=$value['id_genero']?>">
-                    </label>
+                    <label for="genero" id="<?=$value['id_genero']?>">
+                    <?= $value['genero'] ?>
+                </label>
+                <input type="radio" name="id_genero" value="<?=$value['id_genero']?>" id="<?=$value['id_genero']?>" >
                 </div>
             <?php
             }
             ?>
-        </div>
-
-        <div>
-            <label for="id_genero">Generos</label>
-            <select name="id_genero" id="id_genero">
-                <?php
-                foreach ($generos as $key => $value) {
-                ?>
-                <option id="<?=$value['id_genero']?>">
-                    <?= $value['genero'] ?>
-                </option>
-                <?php
-                }
-                ?>
-            </select>
         </div>
         <br>
         <button>Guardar Datos</button>

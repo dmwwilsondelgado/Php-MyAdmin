@@ -1,6 +1,12 @@
 <?php
 
 require('conexion.php');
+
+echo "<pre>";
+print_r($_REQUEST);
+echo "</pre>";
+
+die();
 // variables para consultar
 $db = new Conexion(); // se instancia el objeto
 $conexion = $db->getConexion();//
@@ -20,8 +26,11 @@ $stm = $conexion->prepare($sql);
 $stm->bindParam(":nombre",$nombre);
 $stm->bindParam(":apellido",$apellido);
 $stm->bindParam(":correo",$correo);
-$stm->bindParam(":fecha_nacimiento",$fecha_naccimiento);
+$stm->bindParam(":fecha_nacimiento",$fecha_nacimiento);
 $stm->bindParam(":id_genero",$id_genero);
 $stm->bindParam(":id_ciudad",$id_ciudad);
 
-$stm->execute();
+$usuario = $stm->execute();
+$id_usuario = $conexion->lastInsertId();
+var_dump($id_usuario);
+var_dump($id_genero);

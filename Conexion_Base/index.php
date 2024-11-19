@@ -8,39 +8,14 @@ $sql = "SELECT * FROM ciudades";
 $banedera = $conexion->prepare($sql);
 $banedera->execute();
 $ciudades =$banedera->fetchALL();
+
+
+$sql = "SELECT * FROM generos";
+$banedera = $conexion->prepare($sql);
+$banedera->execute();
+$generos =$banedera->fetchALL();
 ?>
-<!-- 
-<form action=""  method="post">
-    <div>
-        <label for="ciudad_id">Ciudad</label>
-        <select name="ciudad_id" id="ciudad_id">
-            <?php 
-            foreach($ciudades as $key => $value){
-            ?>  
-            <option id="<?=$value['id_ciudad']?>">
-                <?=$value['nombre_ciudad']?>
-            </option>
-            <?php  
-            }
-            ?>
-        </select>
-    </div>
-    <div>
-        <?php
-        foreach($generos as $key => $value){
-        ?>    
-            <div>
-              <label for="Genero<?=$value['id']?>"><?=$value['nombre']?>
-              <input type="radio" name="id_genero" value="<?=$value['id']?>" id="genero_<?=$value['id']?>">
-              </label>
-            </div>
-        <?php
-        }
-        ?>
-    </div>
-    <br>
-    <button>Guardar Datos</button>
-</form> -->
+
 <!-- controlador.php -->
 <form action="controlador.php" method="post">
     <fieldset>
@@ -50,7 +25,7 @@ $ciudades =$banedera->fetchALL();
             <input type="text" id="nombre" name="nombre" placeholder="Nombre">
         </div>
         <div>
-            <label for="apellido">Apellido</label>
+            <label for="apellido">Apelligido</label>
             <input type="text" id="apellido" name="apellido" placeholder="Apellido">
         </div>
         <div>
@@ -83,7 +58,7 @@ $ciudades =$banedera->fetchALL();
             ?>
                 <div>
                     <label for="genero<?=$value['id_genero']?>"><?= $value['genero'] ?>
-                        <input type="radio" name="id_genero" value="<?$value['id_genero']?>" id="genero<?=$value['genero']?>">
+                        <input type="radio" name="id_genero" value="<?$value['id_genero']?>" id="genero<?=$value['id_genero']?>">
                     </label>
                 </div>
             <?php
